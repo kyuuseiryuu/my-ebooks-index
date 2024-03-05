@@ -58,6 +58,13 @@ function App() {
     }
   }, []);
 
+  const handleDownload = useCallback(({ path, name }: { path: string; name: string; }) => {
+    const search = new URLSearchParams();
+    search.set('path', path);
+    search.set('files', name);
+    window.open(`https://cloud.kysr.me/s/69BScLHpwePGmgC/download?${search.toString()}`);
+  }, []);
+
   return (
     <Grid container spacing={2} height='100vh' overflow='auto' p={2}>
       <Grid xs={10} sm={4} md={4} xl={2} position='sticky' top={2}>
@@ -76,7 +83,7 @@ function App() {
             <ListItem
               key={`${e.name}-${i}`}
               startAction={
-                <IconButton>
+                <IconButton onClick={() => handleDownload(e)}>
                   <Download />
                 </IconButton>
               }

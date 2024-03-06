@@ -1,7 +1,7 @@
-import { FormEvent, useCallback, useMemo, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 import { Grid, Input, Box, List, ListItem, ListItemContent, Typography, ListItemButton, IconButton } from '@mui/joy';
 import Download from '@mui/icons-material/Download';
-import lodash, { groupBy } from 'lodash';
+import { groupBy } from 'lodash';
 import './App.css';
 import { TreeNode } from './types';
 import FolderTree from './components/FolderTree';

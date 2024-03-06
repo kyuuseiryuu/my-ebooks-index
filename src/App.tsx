@@ -73,19 +73,18 @@ function App() {
   }, []);
 
   return (
-    <Grid container spacing={2} height='100vh' overflow='auto' p={2}>
-      <Grid xs={10} sm={4} md={4} xl={2} position='sticky' top={2}>
-        <Box mt={1}>
+    <Grid container flex={1} direction='row'>
+      <Grid p={2} xs={12} sm={6} md={4} xl={4}>
+        <Box>
           <form onSubmit={handleSubmit}>
             <Input size="lg" placeholder='搜索' value={searchKey} onChange={e => setSearchKey(e.target.value)} />
           </form>
         </Box>
-        <Box maxHeight='800px' position='sticky' mt={1} overflow='auto'>
+        <Box mt={1} overflow='auto'>
           <FolderTree treeData={treeData} onClick={e => handleClick(e)} />
         </Box>
-        <Box mt={1}>
+        <Box mt={1} display='flex' justifyContent='center'>
           <Pagination
-            size='small'
             showSizeChanger={false}
             pageSize={pagination.pageSize}
             current={pagination.currentPage}
@@ -99,7 +98,7 @@ function App() {
           />
         </Box>
       </Grid>
-      <Grid m={1} xs={10} sm={6} md={6} xl={8} height='100%' display='flex' flexDirection='row' overflow='auto' flexWrap='wrap'>
+      <Grid p={2} xs={12} sm={6} md={8} xl={8} display='flex' flexDirection='row' overflow='auto' flexWrap='wrap'>
         <List>
           {showList
             .slice(pagination.pageSize * (pagination.currentPage - 1), pagination.pageSize * pagination.currentPage)
@@ -121,6 +120,20 @@ function App() {
               </ListItem>
             ))}
         </List>
+        <Box mt={1} display='flex' justifyContent='center'>
+          <Pagination
+            showSizeChanger={false}
+            pageSize={pagination.pageSize}
+            current={pagination.currentPage}
+            total={showList.length}
+            onChange={(page, size) => {
+              setPagination({
+                pageSize: size,
+                currentPage: page,
+              });
+            }}
+          />
+        </Box>
       </Grid>
     </Grid>
   );

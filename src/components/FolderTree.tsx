@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Tree } from 'antd';
-import { TreeNode } from "../types"
+import { TreeNode } from "../types";
 import React from 'react';
 
 interface Props {
@@ -26,6 +26,6 @@ const FolderTree: React.FC<Props> = (props) => {
       treeData={props.treeData}
     />
   );
-}
+};
 
 export default FolderTree;

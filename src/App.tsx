@@ -24,7 +24,7 @@ function getTreeData(data: typeof rawData) {
           key: fullPath,
           title: title,
           children: [],
-        }
+        };
         currentList.push(treeNode);
         currentList = treeNode.children;
         return;

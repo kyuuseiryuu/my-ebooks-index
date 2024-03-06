@@ -7,6 +7,6 @@ interface BookItem {
 
 const useBookIndexList = (): [BookItem[]] => {
   return [data as BookItem[]];
-}
+};
 
 export default useBookIndexList;
